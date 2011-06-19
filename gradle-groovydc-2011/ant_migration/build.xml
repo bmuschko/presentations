@@ -1,0 +1,5 @@
+<project>
+    <target name="run" description="Prints message">
+        <echo>Hello GroovyDC!</echo>
+    </target>
+</project>

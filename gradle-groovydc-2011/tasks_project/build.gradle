@@ -1,0 +1,37 @@
+defaultTasks 'clean', 'run'
+
+task clean << {
+    ant.delete(dir: 'output')
+    println 'Deleted output directory'
+}
+
+task run(dependsOn: clean) << {
+    println 'Default Running!'
+}
+
+task setConfig {
+    description = 'Sets headless system property.'
+    setHeadless()
+}  
+
+def setHeadless() {
+    System.setProperty('java.awt.headless', 'true')
+}
+
+task depPersist(type: DependenciesTask) {
+    println 'Writes dependencies to file.'
+    output = file('build/dependencies.txt')
+} 
+
+import org.gradle.api.DefaultTask
+
+class DependenciesTask extends DefaultTask {
+    File output
+
+	@TaskAction
+	void execute() {
+	    def text = new StringBuilder()
+	    text <<= 'gradle dependencies'.execute().text
+	    output << text
+	}
+}

@@ -1,0 +1,5 @@
+project(':api') {    
+    dependencies {      
+        compile project(':common')  
+    }
+}

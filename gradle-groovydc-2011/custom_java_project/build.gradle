@@ -1,1 +1,19 @@
 apply plugin: 'java'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }        
+    }
+    test {
+        java {
+            srcDir 'test'
+        }        
+    }
+}
+
+buildDir = 'target'
+archivesBaseName = 'groovydc'
+version = 1.1
+

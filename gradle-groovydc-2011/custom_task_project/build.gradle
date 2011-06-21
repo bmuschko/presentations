@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-lang:commons-lang:2.3'
+}
+
+
+task depPersist(type: DependenciesTask) {
+    println 'Writes dependencies to file.'
+    output = file('build/dependencies.txt')
+}
+
+import org.gradle.api.DefaultTask
+
+class DependenciesTask extends DefaultTask {
+    File output
+
+    @TaskAction
+    void execute() {
+         def text = new StringBuilder()
+         text <<= 'gradle dependencies'.execute().text
+         output << text
+    }
+}
+

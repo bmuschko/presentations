@@ -1,5 +1,5 @@
 ant.importBuild 'build.xml'
 
 task echo << {
-    ant.echo 'Default Running!'
+    ant.echo 'Super simple migration!'
 }

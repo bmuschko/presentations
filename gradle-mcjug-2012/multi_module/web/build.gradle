@@ -1,0 +1,15 @@
+project(':web') {
+    apply plugin: 'war'
+    apply plugin: 'jetty'    
+    
+    dependencies {      
+        compile project(':common'),
+                project(':api')
+               
+        runtime 'taglibs:standard:1.1.2',
+                'javax.servlet:jstl:1.1.2'
+
+        providedCompile 'javax.servlet:servlet-api:2.5',
+                        'javax.servlet:jsp-api:2.0'
+    }
+}

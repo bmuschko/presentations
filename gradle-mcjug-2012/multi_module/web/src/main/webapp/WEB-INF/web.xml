@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+   <display-name>MCJUG Webapp</display-name>
+
+   <servlet>
+      <servlet-name>hello</servlet-name>
+      <servlet-class>de.muschko.web.HelloServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>hello</servlet-name>
+      <url-pattern>/mcjug/*</url-pattern>
+   </servlet-mapping>
+   
+</web-app>

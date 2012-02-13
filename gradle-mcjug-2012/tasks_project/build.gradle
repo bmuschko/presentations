@@ -1,0 +1,20 @@
+defaultTasks 'clean', 'run'
+
+task clean << {
+    ant.delete(dir: 'output')
+    println 'Deleted output directory'
+}
+
+task run(dependsOn: clean) << {
+    println 'Default Running!'
+}
+
+task setConfig {
+    description = 'Sets headless system property.'
+    println 'Setting headless system property!'
+    setHeadless()
+}  
+
+def setHeadless() {
+    System.setProperty('java.awt.headless', 'true')
+}

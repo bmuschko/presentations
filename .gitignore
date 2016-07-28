@@ -3,3 +3,8 @@
 .settings
 build
 target
+out
+.idea 
+*.iml 
+*.ipr
+*.iws

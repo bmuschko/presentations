@@ -1,0 +1,20 @@
+apply plugin: "base"
+
+class Size extends DefaultTask {
+    @InputDirectory
+    FileTree inputDir
+
+    @OutputFile
+    File outputFile
+
+    @TaskAction
+    void generate() {
+        logger.quiet 'Generating textfile'
+        outputFile.text = inputDir.files.sum { it.size() }
+    }
+}
+
+task textsize(type: Size) {
+    inputDir = fileTree("src/textfiles")
+    outputFile = file("$buildDir/textsize.txt")
+}

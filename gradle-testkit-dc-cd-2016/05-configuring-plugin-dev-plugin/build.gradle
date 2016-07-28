@@ -1,0 +1,17 @@
+apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
+apply from: "gradle/functional-test.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+        exclude module: 'groovy-all'
+    }
+}
+
+gradlePlugin {
+    testSourceSets sourceSets.functionalTest
+}
